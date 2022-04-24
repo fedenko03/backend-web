@@ -30,14 +30,6 @@
             right: 0;
             background-color: red;
         }
-
-        .centered {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
         .thumb-wrap {
             position: relative;
             padding-bottom: 56.25%;
@@ -52,6 +44,19 @@
             height: 100%;
             border-width: 0;
             outline-width: 0;
+        }
+
+        .YoUvideo {
+            position:relative;
+            padding: 0 0 56.25% 0;
+            height:0;
+            overflow:hidden;
+        }
+        .YoUvideo iframe,.YoUvideo object,.YoUvideo embed {
+            position:absolute;
+            left:0;
+            width:100%;
+            height:100%;
         }
     </style>
 </head>
@@ -78,21 +83,24 @@
 </section>
 
 <div class="split left">
-    <div class="centered">
+        <p style="padding-top: 30px;font-size: 25px; color: white; text-align: center; font-weight: bold">First variant</p>
+        <div class="centered YoUvideo">
         <iframe width="970" height="700" src="https://www.youtube.com/embed/<%= music_url1%>" title="YouTube video player"
                 frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen></iframe>
-        <a href="rand-music"><button class="btn btn-secondary btn-lg" type="button" >Choose</button></a>
-    </div>
+        </div>
+    <a href="rand-music"><button class="btn btn-warning btn-lg" style="padding-top: 10px; text-align: center; height: 80px; width: 100%">Choose</button></a>
 </div>
 
 <div class="split right">
-    <div class="centered ">
+        <p style="padding-top: 30px;font-size: 25px; color: white; text-align: center; font-weight: bold">Second variant</p>
+        <div class="centered YoUvideo">
         <iframe width="970" height="700" src="https://www.youtube.com/embed/<%= music_url2%>" title="YouTube video player"
                 frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen></iframe>
-        <a href="rand-music"><button class="btn btn-secondary btn-lg" type="button" >Choose</button></a>
-    </div>
+            </div>
+    <a href="rand-music"><button class="btn btn-dark btn-lg" style="padding-top: 10px; text-align: center; height: 80px; width: 100%">Choose</button></a>
+
 </div>
 
 

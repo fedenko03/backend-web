@@ -5,8 +5,24 @@
     <title>Main page</title>
 
     <style>
+        body {
+            background:url("http://localhost:3000/img/pic1.png");
+        }
         .white_nav {
             color: ghostwhite;
+        }
+        .YoUvideo {
+            position:relative;
+            padding: 0 0 56.25% 0;
+            height:0;
+            overflow:hidden;
+        }
+        .YoUvideo iframe,.YoUvideo object,.YoUvideo embed {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
         }
     </style>
 </head>
@@ -35,11 +51,14 @@
 </section>
 
 <section>
-    <div class="container">
+    <div class="container" style="background:rgba(0,0,0,0.4);border-radius: 5px">
         <div style="padding-top: 20px"></div>
+        <div style="color: #ffffff; font-size: 33px; text-align: center;margin-top: 10px; padding-bottom: 15px" class="lead">Random music video:</div>
+        <div class="YoUvideo" style="text-align: center">
         <iframe width="1000" height="700" src="https://www.youtube.com/embed/<%= video_Id%>" title="YouTube video player"
                 frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen></iframe>
+        </div>
         <div style="font-size: 20px; color: #efefef;font-weight: bold">Views: <%= views%></div>
     </div>
 </section>

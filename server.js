@@ -6,7 +6,8 @@ const app = express()
 const port = 3000
 
 app.set('view-engine', 'ejs');
-app.use(express.static(__dirname + 'img'));
+
+app.use(express.static('static'));
 
 const randomUrlGen = require("random-youtube-music-video");
 
@@ -19,19 +20,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-    res.sendfile(__dirname+'/login.html')
+    res.render('login.ejs')
 })
 
 app.get('/music', (req, res) => {
-    res.sendfile(__dirname+'/music.html')
+    res.render('music.ejs')
 })
 
 app.get('/rating', (req, res) => {
-    res.sendfile(__dirname+'/rating.html')
+    res.render('rating.ejs')
 })
 
 app.get('/topics', (req, res) => {
-    res.sendfile(__dirname+'/topics.html')
+    res.render('topics.ejs')
 })
 
 app.get('/rand-music',  async function(req, res) {
@@ -40,21 +41,22 @@ app.get('/rand-music',  async function(req, res) {
     var videoId1 = youtubeUrl.split("v=").pop();
     var videoId2 = youtubeUrl2.split("v=").pop();
     const apiKey = 'AIzaSyB-hqrG4rGD17RIAqyYXzEOFr54hZEHRjk';
-    // var videoId1 = 1; IN DEVELOPMENT
-    // var videoId2 = 1;
-    // var urlname1 = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId1 + "&key="+ apiKey + "&fields=items(snippet(title))&part=snippet"
-    // var urlname2 = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId2 + "&key="+ apiKey + "&fields=items(snippet(title))&part=snippet"
-    //
-    // https.get(urlname1, function (response){
+    var urlname1 = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId1 + "&key="+ apiKey + "&fields=items(snippet(title))&part=snippet"
+    var urlname2 = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId2 + "&key="+ apiKey + "&fields=items(snippet(title))&part=snippet"
+    let name1 = ""
+    let name2 = ""
+
+    // https.get(urlname1, function (response){ // in developing
     //     response.on("data", function (data){
     //         const Data = JSON.parse(data);
-    //         const name1 = `${Data.items[0].snippet.title}`;
+    //         name1 = Data.items[0].snippet.title;
     //     })
     // })
+    // console.log(name1)
     // https.get(urlname2, function (response){
     //     response.on("data", function (data){
     //         const Data2 = JSON.parse(data);
-    //         const name2 = `${Data2.items[0].snippet.title}`;
+    //         name2 = Data2.items[0].snippet.title;
     //     })
     // })
 
