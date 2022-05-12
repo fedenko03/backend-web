@@ -1,5 +1,4 @@
 {
-  "for development": "test",
   "test": "tracks(items(track(artists(name),name)))",
   "token": "BQDzErsb9voq-bCk8Dc2sOKyuOnf3_M2Z684n4F1kkOgP0w45Aguavkqn1Nz3e_raeZF8QMRWNtbh77Za7_SoEAPjxREpbrAtdVe9E3shhb0nu0rYofL4hN_FTr24vyAFqM1JjNRLgRYaz_XhzqLt3qxPfncp0s",
   "id-playlist": "6AesWQ2mJ3NLiJXgkTyLG8",

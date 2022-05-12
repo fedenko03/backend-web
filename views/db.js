@@ -1,4 +1,4 @@
-// db.mode1.insertMany([ for inserting
+// db.mode1.insertMany([
 //     {
 //         title: 'Miyagi & Эндшпиль feat. Рем Дигга - I Got Love',
 //         link: 'https://www.youtube.com/watch?v=nidQCt_HEsY',
