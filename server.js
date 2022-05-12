@@ -1,13 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const request = require('request');
-// const ejs = require('ejs')
-// var url = require('url')
 const https = require('https')
 const axios = require('axios');
 const app = express()
 const db = require('./db'); // database
-const port = 3000
+const port = process.env.PORT || 3000
 app.set('view-engine', 'ejs');
 
 const mode1Schema = new mongoose.Schema({
@@ -34,9 +32,11 @@ app.get('/', async function (req, res) {
     res.render('main.ejs')
 })
 
+
 app.get('/login', (req, res) => {
     res.render('login.ejs')
 })
+
 
 app.get('/rating', async function (req, res) {
     await request.get({
@@ -53,9 +53,11 @@ app.get('/rating', async function (req, res) {
     })
 })
 
+
 app.get('/topics', (req, res) => {
     res.render('topics.ejs')
 })
+
 
 app.get('/mode1', async function (req, res) { // mode1
     var links = await mode1.find()
@@ -68,6 +70,7 @@ app.get('/mode1', async function (req, res) { // mode1
     res.render('mode1.ejs', {music_url1: link1, music_url2: link2, music_title1: title1, music_title2: title2});
 })
 
+
 app.get('/mode-random', async function (req, res) {
     var youtubeUrl = await randomUrlGen.getRandomMusicVideoUrl();
     var youtubeUrl2 = await randomUrlGen.getRandomMusicVideoUrl();
@@ -76,10 +79,8 @@ app.get('/mode-random', async function (req, res) {
     const apiKey = 'AIzaSyB-hqrG4rGD17RIAqyYXzEOFr54hZEHRjk';
     var urlname1 = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId1 + "&key=" + apiKey + "&fields=items(snippet(title))&part=snippet" // api for get information about YT video (title)
     var urlname2 = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId2 + "&key=" + apiKey + "&fields=items(snippet(title))&part=snippet"
-
     let name1 = "First option"
     let name2 = "Second option"
-
     async function getName(url) {
         try {
             const response = await axios.get(url)
@@ -88,10 +89,8 @@ app.get('/mode-random', async function (req, res) {
             console.log(error.response);
         }
     }
-
     name1 = await getName(urlname1)
     name2 = await getName(urlname2)
-
     res.render('mode-random.ejs', {
         music_url1: videoId1,
         music_url2: videoId2,
@@ -100,12 +99,12 @@ app.get('/mode-random', async function (req, res) {
     });
 })
 
+
 app.get('/rand_views', async function (req, res) {
     var youtubeUrl = await randomUrlGen.getRandomMusicVideoUrl();
     var videoId = youtubeUrl.split("v=").pop();
     const key = 'AIzaSyB-hqrG4rGD17RIAqyYXzEOFr54hZEHRjk';
     const url = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId + "&key=" + key + "&part=statistics"; // API for get video statistics (views)
-
     https.get(url, function (response) {
         response.on("data", function (data) {
             const Data3 = JSON.parse(data);
