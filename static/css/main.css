@@ -1,3 +1,76 @@
+.btn {
+    display: inline-block;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #2d2d2d;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .6rem 2rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #3763f4;
+    border-color: #3763f4;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #e33cd1;
+    border-color: #e33cd1;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #c133b2;
+    border-color: #b630a7;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #00b4c9;
+    border-color: #00b4c9;
+}
+.btn-info:hover {
+    color: #fff;
+    background-color: #0099ab;
+    border-color: #0090a1;
+}
+
+.btn-light {
+    color: #171717;
+    background-color: #ffffff;
+    border-color: #eeeeee;
+}
+
+.btn-light:hover {
+    color: #171717;
+    background-color: #bbbbbb;
+    border-color: #bbbbbb;
+}
+
+.btn-outline-light {
+    color: #efefef;
+    border-color: #f8f8f8;
+}
+
+.btn-outline-light:hover {
+    color: #1f1f1f;
+    background-color: #e0e0e0;
+    border-color: #f8f8f8;
+}
+
 .bs-icon {
     --bs-icon-size: .75rem;
     display: flex;

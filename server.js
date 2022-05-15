@@ -35,16 +35,23 @@ app.get('/', async function (req, res) {
             https.get(url, function (response) {
             response.on("data", function (data) {
                 const Data3 = JSON.parse(data);
-                var views_v = Data3.items[0].statistics.viewCount
-                var likes_v = Data3.items[0].statistics.likeCount
-                var comments_v = Data3.items[0].statistics.commentCount
-                if (views_v == undefined) {
+                var views_v, likes_v, comments_v;
+
+                try {
+                    views_v = Data3.items[0].statistics.viewCount
+                } catch {
                     views_v = "—"
                 }
-                if (likes_v == undefined) {
+
+                try {
+                    likes_v = Data3.items[0].statistics.likeCount
+                } catch {
                     likes_v = "—"
                 }
-                if (comments_v == undefined) {
+
+                try {
+                    comments_v = Data3.items[0].statistics.commentCount
+                } catch {
                     comments_v = "—"
                 }
 

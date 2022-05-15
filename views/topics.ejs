@@ -1,78 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Topics</title>
-
-    <style>
-        body {
-            background-image:url('../img/pic1.png');
-            font-family: Arial;
-            color: #2b2b2b;
-        }
-        .white_nav {
-            color: ghostwhite;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/topics.css">
 </head>
-<body style="background-color: #1d85fc;">
 
-
-<section class='menu shadow' style="background: #2b2b2b">
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
-            <p class="white_nav" style="font-size: 25px; font-weight:bold">PopHits</p>
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link white_nav" href="/">Main Page</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link white_nav" href="/topics" style="font-weight:bold">Topics</a>
-                </li>
-                <li class="nav-item" style="text-align: right">
-                    <a class="nav-link white_nav" href="/rating">Rating</a>
-                </li>
-            </ul>
-            <div class="nav-item text-end">
-                <a class="btn btn-outline-light me-2 white_nav" href="/login">Login</a>
+<body>
+<nav class="navbar navbar-dark navbar-expand fixed-top bg-dark py-3">
+    <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span
+                    class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                        class="bi bi-music-note-beamed">
+            <path
+                    d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z">
+            </path>
+            <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"></path>
+            <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"></path>
+          </svg></span><span>VHits</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-5">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Main page</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/topics">Topics</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rating">Rating</a></li>
+            </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Login</a>
+        </div>
+    </div>
+</nav>
+<section class="bg-dark" style="padding-top: 40px;padding-bottom: 30px">
+    <div class="container py-5">
+        <p class="fw-bold card-title" style="color: white; text-align: center; font-size: 25px">Select the mode to start:</p>
+        <div class="py-5 p-lg-5">
+            <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                <div class="col mb-5">
+                    <div class="card shadow-sm">
+                        <div class="card-body px-4 py-5 px-md-5">
+                            <div class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
+                                 style="top: 1rem;right: 1rem;position: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-question-diamond">
+                                    <path
+                                            d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.482 1.482 0 0 1 0-2.098L6.95.435zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134z">
+                                    </path>
+                                    <path
+                                            d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z">
+                                    </path>
+                                </svg></div>
+                            <h5 class="fw-bold card-title">Random mode</h5>
+                            <p class="text-muted card-text mb-4">Random music video from YouTube. Choose one of the two as many
+                                times as you want</p><button class="btn btn-primary shadow" type="button">Play</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card shadow-sm">
+                        <div class="card-body px-4 py-5 px-md-5">
+                            <div class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
+                                 style="top: 1rem;right: 1rem;position: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-lightning-charge">
+                                    <path
+                                            d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z">
+                                    </path>
+                                </svg></div>
+                            <h5 class="fw-bold card-title">Russian hits that have become world hits</h5>
+                            <p class="text-muted card-text mb-4">Collected in our database. Get nostalgic</p><button
+                                    class="btn btn-primary shadow" type="button">Play</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card-disabled shadow-sm">
+                        <div class="card-body px-4 py-5 px-md-5">
+                            <div class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
+                                 style="top: 1rem;right: 1rem;position: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-globe2">
+                                    <path
+                                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z">
+                                    </path>
+                                </svg></div>
+                            <h5 class="fw-bold card-title">World hits (multiple rounds)</h5>
+                            <p class="text-muted card-text mb-4">Only one will reach the end</p>
+                            <button disabled class="btn btn-primary shadow" type="button">In development</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-4">
+                    <div class="card-disabled shadow-sm">
+                        <div class="card-body px-4 py-5 px-md-5">
+                            <div class="bs-icon-lg d-flex justify-content-center align-items-center mb-3 bs-icon"
+                                 style="top: 1rem;right: 1rem;position: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-hammer">
+                                    <path
+                                            d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5.009 5.009 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334z">
+                                    </path>
+                                </svg></div>
+                            <h5 class="fw-bold card-title">New mode</h5>
+                            <p class="text-muted card-text mb-4">In the next updates</p>
+                            <button disabled class="btn btn-primary shadow" type="button">In development</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </header>
+
+        </div>
     </div>
 </section>
-
-<div class="container" style="padding-top: 25px">
-    <div class="p-5 mb-4 bg-light rounded-3" style="border-radius: 5px">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Random mode</h1>
-            <p class="col-md-8 fs-4">Random music video from YouTube. Choose one of the two as many times as you want</p>
-            <a href="mode-random"><button class="btn btn-primary btn-lg" type="button" >Start</button></a>
-            <a style="color: #c22323; font-size: 15px">It may take some time to load the pages</a>
-        </div>
+<footer class="text-center" style="background-color: #1b1f23;padding-top: 20px">
+    <div class="container text-white py-4 py-lg-2">
+        <ul class="list-inline">
+            <li class="list-inline-item me-4"><a class="link-light" href="/">Main page</a></li>
+            <li class="list-inline-item me-4"><a class="link-light" href="/topics">Topics</a></li>
+            <li class="list-inline-item"><a class="link-light" href="/rating">Rating</a></li>
+        </ul>
+        <p class="text-muted mb-0">Copyright © 2022 VHits</p>
     </div>
-
-    <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-            <div class="h-100 p-5 text-white bg-dark rounded-3" style="border-radius: 5px">
-                <h2>Russian hits that have become world hits</h2>
-                <p>Collected in our database. Get nostalgic</p>
-                <a href="mode1"><button class="btn btn-outline-light" type="button">Start</button></a>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="h-100 p-5 bg-light border rounded-3" style="border-radius: 5px">
-                <h2>World hits (multiple rounds)</h2>
-                <p>Only one will reach the end.</p>
-                <button disabled class="btn btn-outline-secondary" type="button">In development</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="../js/topics.js"></script>
 </body>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>
