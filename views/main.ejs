@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
-<body>
+<body class="bgblack">
 <nav class="navbar navbar-dark navbar-expand fixed-top bg-dark py-3">
     <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span
                     class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg
@@ -20,15 +20,14 @@
             </path>
             <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"></path>
             <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"></path>
-          </svg></span><span>VHits</span></a><button data-bs-toggle="collapse" class="navbar-toggler"
-                                                     data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span
+          </svg></span><span>VHits</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span
                     class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-5">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="#">Main page</a></li>
-                <li class="nav-item"><a class="nav-link" href="/topics">Topics</a></li>
-                <li class="nav-item"><a class="nav-link" href="/rating">Rating</a></li>
-            </ul><a class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
+                <li class="nav-item"><a onclick="lloading()" class="nav-link active" href="#">Main page</a></li>
+                <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/topics">Topics</a></li>
+                <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/rating">Rating</a></li>
+            </ul><a onclick="lloading()" class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
         </div>
     </div>
 </nav>
@@ -44,9 +43,9 @@
                         <p class="text-light my-3">Nostalgia often overwhelms people, and they want to listen to popular world pop
                             hits. With this site you can listen to tracks from a large collection and possibly add them to your
                             playlist (Yandex Music or something else).</p>
-                        <p class="text-warning">Listen and watch music videos from YouTube and choose the best!</p><a
-                                class="btn btn-light btn-lg me-2" role="button" href="/topics">Start listening</a><a
-                                class="btn btn-outline-light btn-lg" role="button" href="/login">Login</a>
+                        <p class="text-warning">Listen and watch music videos from YouTube and choose the best!</p>
+                        <a onclick="lloading()" class="btn btn-light btn-lg me-2" role="button" href="/topics">Start listening</a>
+                        <a onclick="lloading()" class="btn btn-outline-light btn-lg" role="button" href="/login">Login</a>
                     </div>
                 </div>
             </div>
@@ -186,8 +185,8 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/topics"><button class="btn btn-primary fs-5 me-2 py-2 px-4" type="button">Start listening</button></a>
-                    <a href="/login"><button class="border-bottom btn btn-light fs-5 py-2 px-4" type="button" >Login</button></a>
+                    <a onclick="lloading()" href="/topics"><button class="btn btn-primary fs-5 me-2 py-2 px-4" type="button">Start listening</button></a>
+                    <a onclick="lloading()" href="/login"><button class="border-bottom btn btn-light fs-5 py-2 px-4" type="button" >Login</button></a>
                 </div>
             </div>
         </section>
@@ -196,9 +195,9 @@
 <footer class="text-center" style="background-color: #1b1f23">
     <div class="container text-white py-4 py-lg-2">
         <ul class="list-inline">
-            <li class="list-inline-item me-4"><a class="link-light" href="/">Main page</a></li>
-            <li class="list-inline-item me-4"><a class="link-light" href="/topics">Topics</a></li>
-            <li class="list-inline-item"><a class="link-light" href="/rating">Rating</a></li>
+            <li class="list-inline-item me-4"><a onclick="lloading()" class="link-light" href="/">Main page</a></li>
+            <li class="list-inline-item me-4"><a onclick="lloading()" class="link-light" href="/topics">Topics</a></li>
+            <li class="list-inline-item"><a onclick="lloading()" class="link-light" href="/rating">Rating</a></li>
         </ul>
         <p class="text-muted mb-0">Copyright © 2022 VHits</p>
     </div>

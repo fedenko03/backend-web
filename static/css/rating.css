@@ -134,7 +134,10 @@
     border-radius: 1rem;
 }
 
-.el_white {
-    color: white;
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb{
+    background: #262626;
 }
 

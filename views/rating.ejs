@@ -28,11 +28,11 @@
                 <li class="nav-item"><a class="nav-link" href="/">Main page</a></li>
                 <li class="nav-item"><a class="nav-link" href="/topics">Topics</a></li>
                 <li class="nav-item"><a class="nav-link active" href="/rating">Rating</a></li>
-            </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Login</a>
+            </ul><a class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
         </div>
     </div>
 </nav>
-<section class="bg-dark" style="padding-top: 40px;padding-bottom: 400px">
+<section class="bg-dark" style="padding-top: 40px;padding-bottom: 300px">
     <div class="container py-5">
         <p class="fw-bold card-title" style="color: white; text-align: center; font-size: 25px">Rating:</p>
         <table class="table table-hover" style="border-radius: 10px">
@@ -69,8 +69,8 @@
             <div class="card bg-primary-light">
                 <div class="card-body text-center ">
                     <p class="fw-bold text-primary card-text mb-2">Random fact:</p>
-                    <h5 class="fw-bold card-title mb-3" style="color: white">Lorem ipsum dolor sit&nbsp;nullam et quis ad cras porttitor</h5>
-                    <button class="btn btn-primary btn-sm" type="button">Generate another</button>
+                    <h5 class="fw-bold card-title mb-3" style="color: white"><%=random_fact%></h5>
+                    <a href="/rating"><button class="btn btn-primary btn-sm" type="button">Generate another</button></a>
                 </div>
             </div>
         </div>
