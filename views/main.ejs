@@ -1,66 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Main page</title>
-    <link href="./css/main.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Main-page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
-<body style="background-color: #1d85fc;">
 
-<section class='menu shadow' style="background: #2b2b2b">
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
-            <p class="white_nav" style="font-size: 25px; font-weight:bold">PopHits</p>
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link white_nav" href="/" style="font-weight:bold">Main Page</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link white_nav" href="/topics">Topics</a>
-                </li>
-                <li class="nav-item" style="text-align: right">
-                    <a class="nav-link white_nav" href="/rating">Rating</a>
-                </li>
-            </ul>
-            <div class="nav-item text-end">
-                <a class="btn btn-outline-light me-2 white_nav" href="/login">Login</a>
-            </div>
-        </header>
-    </div>
-</section>
-
-<section class="main-part color-b" id="about_us">
-    <div style="padding-top: 6em;"></div>
-    <div class="container px-4 py-5" style="background:rgba(0,0,0,0.4);border-radius: 5px">
-        <div>
-        <h1 class="border-bottom white_nav" style="text-align: center;font-family:'Montserrat', sans-serif;font-size:4em;font-weight: bold;padding-bottom: 1em;">The best music video of all time</h1>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
-            <div class="feature col">
-                <h2 class="white_nav" style="margin-top: 5px">About us</h2>
-                <p class="white_nav lead mtext">Nostalgia often overwhelms people, and they want to listen to popular world pop hits. With this site you can listen to tracks from a large collection and possibly add them to your playlist (Yandex Music or something else).</p>
-            </div>
-
-            <div class="feature col">
-                <h2 class="white_nav mtext" style="margin-top: 5px">About music</h2>
-                <p class="white_nav lead mtext">It makes us better, inspires and inspires, gives unforgettable feelings. It is thanks to music that a person is able to relax, relax, get some food for the mind. This kind of art can radically change a person's mood – cheer him up, sadden him, feel longing</p>
-            </div>
-        </div>
-        <div class="white_nav" style="text-align: center"><a style="padding-right: 15px">Views under random music videos on YouTube prove this. Check number of views:</a>
-            <a href="/rand_views">
-                <input class="row btn btn-outline-light" type="submit" value="Get random the music-video from YouTube.">
-            </a>
-        </div>
-        <div style="color: #c20000; text-align: center;font-size: 18px">It may take some time to load the pages</div>
+<body>
+<nav class="navbar navbar-dark navbar-expand fixed-top bg-dark py-3">
+    <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span
+                    class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                        class="bi bi-music-note-beamed">
+            <path
+                    d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z">
+            </path>
+            <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"></path>
+            <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"></path>
+          </svg></span><span>VHits</span></a><button data-bs-toggle="collapse" class="navbar-toggler"
+                                                     data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-5">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#">Main page</a></li>
+                <li class="nav-item"><a class="nav-link" href="/topics">Topics</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rating">Rating</a></li>
+            </ul><a class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
         </div>
     </div>
-    <div style="background: linear-gradient(transparent 20px, white);"></div>
+</nav>
+<section>
+    <div data-bss-parallax-bg="true"
+         style="height: 600px; background-image:url('../img/pic1.png');background-position: center;background-size: cover;">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div
+                        class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center">
+                    <div style="max-width: 350px;">
+                        <h1 class="text-uppercase fw-bold text-light">About the website</h1>
+                        <p class="text-light my-3">Nostalgia often overwhelms people, and they want to listen to popular world pop
+                            hits. With this site you can listen to tracks from a large collection and possibly add them to your
+                            playlist (Yandex Music or something else).</p>
+                        <p class="text-warning">Listen and watch music videos from YouTube and choose the best!</p><a
+                                class="btn btn-light btn-lg me-2" role="button" href="/topics">Start listening</a><a
+                                class="btn btn-outline-light btn-lg" role="button" href="/login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-
+<section class="bg-dark">
+    <div class="container text-white py-4 py-xl-5">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2><br>Main features of the website:</h2>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="col">
+                <div class="d-flex p-3">
+                    <div
+                            class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                             class="bi bi-emoji-heart-eyes">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                            <path
+                                    d="M11.315 10.014a.5.5 0 0 1 .548.736A4.498 4.498 0 0 1 7.965 13a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .548-.736h.005l.017.005.067.015.252.055c.215.046.515.108.857.169.693.124 1.522.242 2.152.242.63 0 1.46-.118 2.152-.242a26.58 26.58 0 0 0 1.109-.224l.067-.015.017-.004.005-.002zM4.756 4.566c.763-1.424 4.02-.12.952 3.434-4.496-1.596-2.35-4.298-.952-3.434zm6.488 0c1.398-.864 3.544 1.838-.952 3.434-3.067-3.554.19-4.858.952-3.434z">
+                            </path>
+                        </svg></div>
+                    <div class="px-2">
+                        <h5 class="mb-0 mt-1">Multiple modes for entertainment</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-flex p-3">
+                    <div
+                            class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                             class="bi bi-bar-chart-fill">
+                            <path
+                                    d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z">
+                            </path>
+                        </svg></div>
+                    <div class="px-2">
+                        <h5 class="mb-0 mt-1">Rating with the most popular music videos</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-flex p-3">
+                    <div
+                            class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                             class="bi bi-collection-play-fill">
+                            <path
+                                    d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm6.258-6.437a.5.5 0 0 1 .507.013l4 2.5a.5.5 0 0 1 0 .848l-4 2.5A.5.5 0 0 1 6 12V7a.5.5 0 0 1 .258-.437z">
+                            </path>
+                        </svg></div>
+                    <div class="px-2">
+                        <h5 class="mb-0 mt-1">A large number of music videos</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-flex p-3">
+                    <div
+                            class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                             class="bi bi-bookmark-star-fill">
+                            <path fill-rule="evenodd"
+                                  d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zM8.16 4.1a.178.178 0 0 0-.32 0l-.634 1.285a.178.178 0 0 1-.134.098l-1.42.206a.178.178 0 0 0-.098.303L6.58 6.993c.042.041.061.1.051.158L6.39 8.565a.178.178 0 0 0 .258.187l1.27-.668a.178.178 0 0 1 .165 0l1.27.668a.178.178 0 0 0 .257-.187L9.368 7.15a.178.178 0 0 1 .05-.158l1.028-1.001a.178.178 0 0 0-.098-.303l-1.42-.206a.178.178 0 0 1-.134-.098L8.16 4.1z">
+                            </path>
+                        </svg></div>
+                    <div class="px-2">
+                        <h5 class="mb-0 mt-1">Ability to add music videos to favorites</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="py-4 py-xl-5">
+            <div class="container">
+                <div class="text-center p-4 p-lg-5">
+                    <h1 class="fw-bold mb-4"><br>How important is music in our lives?</h1>
+                    <p><br>Music makes us better, inspires and inspires, gives unforgettable feelings. It is thanks to music
+                        that a person is able to relax, get some food for the mind. This kind of art can radically change a
+                        person's mood – cheer him up, sadden him, feel longing.&nbsp;<br><br></p>
+                    <p class="text-warning">See how many views a random music video from Youtube has to make sure of this.<br></p>
+                    <div class="YoUvideo" style="text-align: center">
+                        <iframe width="1000" height="700" src="https://www.youtube.com/embed/<%= video_Id%>" title="YouTube video player"
+                                frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen></iframe>
+                    </div>
+                    <div class="row gx-3 gy-3 row-cols-3 row-cols-md-4 justify-content-center">
+                        <div class="col">
+                            <div class="text-center d-flex flex-column justify-content-center align-items-center py-3">
+                                <div
+                                        class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-2 bs-icon lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                                         viewBox="0 0 16 16" class="bi bi-play-btn-fill">
+                                        <path
+                                                d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z">
+                                        </path>
+                                    </svg></div>
+                                <div class="px-3">
+                                    <h2 class="fw-bold mb-0"> <%=views%></h2>
+                                    <p class="mb-0">Views</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="text-center d-flex flex-column justify-content-center align-items-center py-3">
+                                <div
+                                        class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-2 bs-icon lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                                         viewBox="0 0 16 16" class="bi bi-hand-thumbs-up-fill">
+                                        <path
+                                                d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z">
+                                        </path>
+                                    </svg></div>
+                                <div class="px-3">
+                                    <h2 class="fw-bold mb-0"> <%=likes%></h2>
+                                    <p class="mb-0">Likes</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="text-center d-flex flex-column justify-content-center align-items-center py-3">
+                                <div
+                                        class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-2 bs-icon lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                                         viewBox="0 0 16 16" class="bi bi-chat-left-text-fill">
+                                        <path
+                                                d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z">
+                                        </path>
+                                    </svg></div>
+                                <div class="px-3">
+                                    <h2 class="fw-bold mb-0"> <%=comments%></h2>
+                                    <p class="mb-0">Comments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/topics"><button class="btn btn-primary fs-5 me-2 py-2 px-4" type="button">Start listening</button></a>
+                    <a href="/login"><button class="border-bottom btn btn-light fs-5 py-2 px-4" type="button" >Login</button></a>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+<footer class="text-center" style="background-color: #1b1f23">
+    <div class="container text-white py-4 py-lg-2">
+        <ul class="list-inline">
+            <li class="list-inline-item me-4"><a class="link-light" href="/">Main page</a></li>
+            <li class="list-inline-item me-4"><a class="link-light" href="/topics">Topics</a></li>
+            <li class="list-inline-item"><a class="link-light" href="/rating">Rating</a></li>
+        </ul>
+        <p class="text-muted mb-0">Copyright © 2022 VHits</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="../js/main.js"></script>
 </body>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>

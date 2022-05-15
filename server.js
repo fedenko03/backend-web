@@ -26,7 +26,34 @@ app.use(express.static('static'));
 const randomUrlGen = require("random-youtube-music-video"); // generate link for random YT music video
 
 app.get('/', async function (req, res) {
-    res.render('main.ejs')
+    try {
+        var youtubeUrl = await randomUrlGen.getRandomMusicVideoUrl();
+        var videoId = youtubeUrl.split("v=").pop();
+        const key = 'AIzaSyB-hqrG4rGD17RIAqyYXzEOFr54hZEHRjk';
+        const url = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId + "&key=" + key + "&part=statistics"; // API for get video statistics (views)
+        // console.log(url)
+            https.get(url, function (response) {
+            response.on("data", function (data) {
+                const Data3 = JSON.parse(data);
+                var views_v = Data3.items[0].statistics.viewCount
+                var likes_v = Data3.items[0].statistics.likeCount
+                var comments_v = Data3.items[0].statistics.commentCount
+                if (views_v == undefined) {
+                    views_v = "—"
+                }
+                if (likes_v == undefined) {
+                    likes_v = "—"
+                }
+                if (comments_v == undefined) {
+                    comments_v = "—"
+                }
+                res.render('main.ejs', {video_Id: videoId, views: views_v, likes: likes_v, comments: comments_v})
+            })
+
+        })
+    } catch {
+        res.render('main.ejs', {video_Id: 0, views: 0, likes: 0, comments: 0})
+    }
 })
 
 
@@ -94,21 +121,6 @@ app.get('/mode-random', async function (req, res) {
         music_title1: name1,
         music_title2: name2
     });
-})
-
-
-app.get('/rand_views', async function (req, res) {
-    var youtubeUrl = await randomUrlGen.getRandomMusicVideoUrl();
-    var videoId = youtubeUrl.split("v=").pop();
-    const key = 'AIzaSyB-hqrG4rGD17RIAqyYXzEOFr54hZEHRjk';
-    const url = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId + "&key=" + key + "&part=statistics"; // API for get video statistics (views)
-    https.get(url, function (response) {
-        response.on("data", function (data) {
-            const Data3 = JSON.parse(data);
-            res.render('main-random-video.ejs', {video_Id: videoId, views: Data3.items[0].statistics.viewCount})
-        })
-
-    })
 })
 
 app.listen(process.env.PORT || 3000, function(){
