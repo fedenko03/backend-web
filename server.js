@@ -5,7 +5,6 @@ const https = require('https')
 const axios = require('axios');
 const app = express()
 const port = process.env.PORT;
-app.listen(port);
 const db = require('./db'); // database
 app.set('view-engine', 'ejs');
 
