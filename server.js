@@ -5,7 +5,6 @@ const https = require('https')
 const axios = require('axios');
 const app = express()
 const db = require('./db'); // database
-const port = process.env.PORT || 3000
 app.set('view-engine', 'ejs');
 
 const mode1Schema = new mongoose.Schema({
@@ -24,9 +23,9 @@ app.use(express.static('static'));
 
 const randomUrlGen = require("random-youtube-music-video"); // generate link for random YT music video
 
-app.listen(port, () => {
-    console.log(`Example app listening on port http://localhost:${port}`)
-})
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 app.get('/', async function (req, res) {
     res.render('main.ejs')
