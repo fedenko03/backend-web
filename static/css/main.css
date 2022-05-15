@@ -160,3 +160,20 @@
     background-color:rgba(50, 50, 50, 0.5);
     /* display:none; */
 }
+
+html.darkenPage {
+    background-color: black;
+}
+
+html.darkenPage body {
+    opacity: 0.5;
+}
+
+.child {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}

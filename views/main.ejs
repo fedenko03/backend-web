@@ -24,7 +24,7 @@
                     class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-5">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a onclick="lloading()" class="nav-link active" href="#">Main page</a></li>
+                <li class="nav-item"><a onclick="lloading()" class="nav-link active" href="/">Main page</a></li>
                 <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/topics">Topics</a></li>
                 <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/rating">Rating</a></li>
             </ul><a onclick="lloading()" class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
@@ -53,6 +53,7 @@
     </div>
 </section>
 <section class="bg-dark">
+    <div id="spinner" class="spinner-grow text-primary text-center child" style=" display: block;position: fixed;z-index: -1000;width: 3rem; height: 3rem;" role="status"></div>
     <div class="container text-white py-4 py-xl-5">
         <div class="row mb-5">
             <div class="col-md-8 col-xl-6 text-center mx-auto">
@@ -191,6 +192,7 @@
             </div>
         </section>
     </div>
+
 </section>
 <footer class="text-center" style="background-color: #1b1f23">
     <div class="container text-white py-4 py-lg-2">
