@@ -1,10 +1,10 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const request = require('request');
 const https = require('https')
 const axios = require('axios');
 const app = express()
-const port = process.env.PORT;
 const db = require('./db'); // database
 app.set('view-engine', 'ejs');
 
@@ -20,13 +20,10 @@ const mode1Schema = new mongoose.Schema({
 });
 const mode1 = mongoose.model('mode1', mode1Schema);
 
+app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static('static'));
 
 const randomUrlGen = require("random-youtube-music-video"); // generate link for random YT music video
-
-app.listen(port, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
 
 app.get('/', async function (req, res) {
     res.render('main.ejs')
@@ -113,3 +110,7 @@ app.get('/rand_views', async function (req, res) {
 
     })
 })
+
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
