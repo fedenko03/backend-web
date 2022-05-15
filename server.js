@@ -47,8 +47,7 @@ app.get('/', async function (req, res) {
                 if (comments_v == undefined) {
                     comments_v = "—"
                 }
-                var re = /(?=\B(?:\d{3})+(?!\d))/g
-                res.render('main.ejs', {video_Id: videoId, views: views_v.replace(re, ' '), likes: likes_v.replace(re, ' '), comments: comments_v.replace(re, ' ')})
+                res.render('main.ejs', {video_Id: videoId, views: views_v, likes: likes_v, comments: comments_v})
             })
 
         })
@@ -92,12 +91,6 @@ app.get('/mode1', async function (req, res) { // mode1
     var link1 = links[random].link.split("v=").pop();
     var title2 = links[random - 1].title
     var link2 = links[random - 1].link.split("v=").pop();
-    if (title1 == undefined) {
-        title1 = "Option 1"
-    }
-    if (title2 == undefined) {
-        title2 = "Option 2"
-    }
     res.render('mode1.ejs', {music_url1: link1, music_url2: link2, music_title1: title1, music_title2: title2});
 })
 
