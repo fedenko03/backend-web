@@ -4,6 +4,8 @@ const request = require('request');
 const https = require('https')
 const axios = require('axios');
 const app = express()
+const port = process.env.PORT;
+app.listen(port);
 const db = require('./db'); // database
 app.set('view-engine', 'ejs');
 
@@ -23,7 +25,7 @@ app.use(express.static('static'));
 
 const randomUrlGen = require("random-youtube-music-video"); // generate link for random YT music video
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(port, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
