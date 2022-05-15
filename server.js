@@ -72,7 +72,10 @@ app.get('/rating', async function (req, res) {
         }
     }, function (error, response, body) {
         if (error) return console.error('Request failed:', error);
-        else if (response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
+        else if (response.statusCode != 200) {
+            console.error('Error:', response.statusCode, body.toString('utf8'));
+            return res.render('rating.ejs', {random_fact: "Internal server error"})
+        }
         // else console.log(body) // for testing
         let bdy = JSON.parse(body)
         res.render('rating.ejs', {random_fact: bdy[0].fact})
