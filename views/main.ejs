@@ -27,7 +27,12 @@
                 <li class="nav-item"><a onclick="lloading()" class="nav-link active" href="/">Main page</a></li>
                 <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/topics">Topics</a></li>
                 <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/rating">Rating</a></li>
-            </ul><a onclick="lloading()" class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
+            </ul>
+            <% if (!username) { %>
+            <a onclick="lloading()" class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
+            <%} else {%>
+            <a class="btn btn-primary ms-md-2" role="button" href="/logout">Logout (<%=username%>)</a>
+            <%}%>
         </div>
     </div>
 </nav>

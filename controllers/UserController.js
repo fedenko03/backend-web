@@ -11,16 +11,16 @@ exports.register = async (req, res) => {
     const isexist_username = await UserModel.findOne({username})
     if (isexist_username) {
         let mess = 'Such a user already exists'
-        return res.send(mess)
+        return res.status(204).render('register.ejs', {message: mess})
     }
     const isexist_email = await UserModel.findOne({email})
     if (isexist_email) {
         let mess = 'Such a user already exists'
-        return res.send(mess)
+        return res.status(204).render('register.ejs', {message: mess})
     }
     if (!email || !username || password) {
         let mess = 'Fill in all the fields'
-        return res.send(mess)
+        return res.status(205).render('register.ejs', {message: mess})
     }
     bcrypt.hash(req.body.password, 10, function(err, hash) {
         const newUser = new UserModel({
@@ -31,8 +31,10 @@ exports.register = async (req, res) => {
         newUser.save(function (err) {
             if (err) {
                 console.log(err);
+                res.send(err)
             } else {
-                return res.send(mess)
+                let mess = 'You have successfully registered'
+                res.status(1).render('register.ejs', {message: mess})
             }
         });
     })
@@ -44,19 +46,19 @@ exports.login = async (req, res) => {
         const user = await UserModel.findOne({email})
         if (!user) {
             let mess = 'User not found'
-            return res.send(mess)
+            return res.status(206).render('login.ejs', {message: mess})
         }
         const validPassword = bcrypt.compareSync(password, user.password)
         if (!validPassword) {
             let mess = 'Password is incorrect'
-            return res.send(mess)
+            return res.status(207).render('login.ejs', {message: mess})
         }
         req.session.username = user.username;
-        return res.redirect('/topics')
+        return res.status(1).redirect('/topics')
     } catch (e) {
         console.log(e)
         let mess = 'Error.Try again'
-        return res.send(mess)
+        return res.status(208).render('login.ejs', {message: mess})
     }
 };
 
@@ -65,15 +67,15 @@ exports.logout = async (req, res) => {
         if (req.session.username) {
             req.session.destroy()
             let mess = 'Successfully'
-            return res.send(mess)
+            return res.render('login.ejs', {message: mess})
         } else {
             let mess = 'You are not authorized'
-            return res.send(mess)
+            return res.render('login.ejs', {message: mess})
         }
     } catch (e) {
         console.log(e)
         let mess = 'Error.Try again'
-        return res.send(mess)
+        return res.render('login.ejs', {message: mess})
     }
 };
 
@@ -81,7 +83,7 @@ exports.logout = async (req, res) => {
 exports.getUsers = async (req, res) => {
     try {
         const users = await UserModel.find()
-        res.json(users)
+        res.status(200).json(users)
     } catch (e) {
         console.log(e)
     }
@@ -90,19 +92,8 @@ exports.getUsers = async (req, res) => {
 exports.getlistMode1 = async (req, res) => {
     try {
         const mode1 = await Mode1Model.find()
-        res.json(mode1)
+        res.status(200).json(mode1)
     } catch (e) {
         console.log(e)
     }
 };
-
-
-// http.findUser((request, response) => {
-//     console.log('server work');
-//     if (request.method == 'GET') {
-//         // GET -> получить обработать
-//         let urlRequest = url.parse(request.url, true);
-//         console.log(urlRequest.query.test); // ! GET Params
-//         response.end(urlRequest.query.test);
-//     }
-// }).listen(3000);

@@ -85,12 +85,12 @@ app.get('/', async function (req, res) {
                 }
 
                 var re = /(?=\B(?:\d{3})+(?!\d))/g
-                res.render('main.ejs', {video_Id: videoId, views: views_v.replace(re,' '), likes: likes_v.replace(re,' '), comments: comments_v.replace(re,' ')})
+                res.render('main.ejs', {video_Id: videoId, views: views_v.replace(re,' '), likes: likes_v.replace(re,' '), comments: comments_v.replace(re,' '), username: req.session.username})
             })
 
         })
     } catch {
-        res.render('main.ejs', {video_Id: 0, views: 0, likes: 0, comments: 0, username: req.body.username})
+        res.render('main.ejs', {video_Id: 0, views: 0, likes: 0, comments: 0, username: req.session.username})
     }
 })
 
@@ -113,18 +113,17 @@ app.get('/rating', async function (req, res) {
         }
         // else console.log(body) // for testing
         let bdy = JSON.parse(body)
-        res.render('rating.ejs', {random_fact: bdy[0].fact, username: req.body.username})
+        res.render('rating.ejs', {random_fact: bdy[0].fact, username: req.session.username})
     })
 })
 
 
 app.get('/topics', (req, res) => {
-    console.log(req.session.username)
     if (req.session.username) {
-        return res.render('topics.ejs', {username: req.body.username})
+        return res.render('topics.ejs', {username: req.session.username})
     }
     let mess = 'To use the site, log in'
-    return res.render('login.ejs', {message: mess, username: req.body.username})
+    return res.render('login.ejs', {message: mess, username: req.session.username})
 })
 
 
@@ -146,7 +145,7 @@ app.get('/mode1', async function (req, res) { // mode1
     if (title2 == undefined) {
         title2 = "Option 2"
     }
-    res.render('mode1.ejs', {music_url1: link1, music_url2: link2, music_title1: title1, music_title2: title2, username: req.body.username});
+    res.render('mode1.ejs', {music_url1: link1, music_url2: link2, music_title1: title1, music_title2: title2, username: req.session.username});
 })
 
 

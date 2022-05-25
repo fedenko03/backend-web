@@ -23,6 +23,43 @@
     }
   ],
   "paths": {
+
+    "/getusers": {
+      "get": {
+        "summary": "Get information about all users in the database",
+        "tags": [
+          "USER API functions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "document": {
+                "schema": {
+                  "type": "string",
+                  "example": [
+                    {
+                      "_id": "628c342d3e62c16c6454391e",
+                      "username": "admin",
+                      "email": "211524@astanait.edu.kz",
+                      "password": "$2b$10$EwMwQnTwj2cWyDKnGHV.JOJXLiQAEYCWwSU77PpEKS61jwr6hXXqK",
+                      "__v": 0
+                    },
+                    {
+                      "_id": "628c342d3e62c16c6434391e",
+                      "username": "Ivan_hacker",
+                      "email": "hacker777@gmail.com",
+                      "password": "$2b$10GRGF3FDWDGFGDFDSFSDGFDGFDGDFSDFDSFGWwSU77PpEKS61jwr6hXXqK",
+                      "__v": 0
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/register-user": {
       "post": {
         "summary": "Registers a new user in the database",
@@ -78,8 +115,14 @@
         ],
         "description": "Registers a new user in the database",
         "responses": {
+          "1": {
+            "description": "Successful registration"
+          },
           "204": {
-            "description": "OK"
+            "description": "Such a user already exists"
+          },
+          "205": {
+            "description": "Not all fields are filled in"
           }
         }
       }
@@ -128,88 +171,23 @@
         ],
         "description": "Log in to the user account",
         "responses": {
-          "204": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/getusers": {
-      "get": {
-        "summary": "Get information about all users in the database",
-        "tags": [
-          "USER API functions"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "document": {
-                "schema": {
-                  "type": "string",
-                  "example": [
-                    {
-                      "_id": "628c342d3e62c16c6454391e",
-                      "username": "admin",
-                      "email": "211524@astanait.edu.kz",
-                      "password": "$2b$10$EwMwQnTwj2cWyDKnGHV.JOJXLiQAEYCWwSU77PpEKS61jwr6hXXqK",
-                      "__v": 0
-                    },
-                    {
-                      "_id": "628c342d3e62c16c6434391e",
-                      "username": "Ivan_hacker",
-                      "email": "hacker777@gmail.com",
-                      "password": "$2b$10GRGF3FDWDGFGDFDSFSDGFDGFDGDFSDFDSFGWwSU77PpEKS61jwr6hXXqK",
-                      "__v": 0
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/finduser": {
-      "post": {
-        "summary": "Get information about a user by their username",
-        "tags": [
-          "USER API functions"
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              },
-              "example": {
-                  "username": "admin"
-                }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "required": true,
-            "description": "A unique username that should not be repeated",
-            "schema": {
-              "type": "string",
-              "example": "admin"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "OK"
+          "1": {
+            "description": "Successful authorization"
+          },
+          "206": {
+            "description": "User not found"
+          },
+          "207": {
+            "description": "Password is incorrect"
+          },
+          "208": {
+            "description": "Another error"
           }
         }
       }
     },
     "/getlistmode1": {
-      "post": {
+      "get": {
         "summary": "Get all information about mode 1",
         "tags": [
           "Mode1 API functions"
