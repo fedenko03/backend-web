@@ -11,19 +11,28 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
+    "connect": "^3.7.0",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.7",
     "ejs-locals": "^1.0.2",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.5",
+    "express-session": "^1.17.3",
     "express-validator": "^6.14.0",
     "got": "^9.6.0",
+    "md5": "^2.3.0",
     "mongodb": "^4.5.0",
     "mongoose": "^6.3.3",
+    "mongoose-encryption": "^2.1.2",
+    "mongoose-findorcreate": "^3.0.0",
     "node-fetch": "^3.2.4",
     "nodemon": "^2.0.15",
+    "querystring": "^0.2.1",
     "random-youtube-music-video": "^1.0.6",
     "request": "^2.88.2",
+    "swagger-ui-express": "^4.4.0",
     "view-engine": "^1.1.1"
   }
 }

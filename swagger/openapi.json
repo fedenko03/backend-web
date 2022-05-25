@@ -1,0 +1,259 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "WEB Technologies 2 [Back End]",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    },
+    {
+      "url": "https://immense-escarpment-18318.herokuapp.com/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "USER API functions",
+      "description": "Working with user data"
+    },
+    {
+      "name": "Mode1 API functions",
+      "description": "Working with data for mode 1"
+    }
+  ],
+  "paths": {
+    "/register-user": {
+      "post": {
+        "summary": "Registers a new user in the database",
+        "tags": [
+          "USER API functions"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "example": {
+                "username": "admin",
+                "email": "admin@astanait.edu.kz",
+                "password": "2019"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "description": "A unique username that should not be repeated",
+            "schema": {
+              "type": "string",
+              "example": "migayx"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "description": "User's email address",
+            "schema": {
+              "type": "string",
+              "example": "211524@astanait.edu.kz"
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "description": "Password to log in to the user account",
+            "schema": {
+              "type": "string",
+              "example": "AITU2022!"
+            }
+          }
+        ],
+        "description": "Registers a new user in the database",
+        "responses": {
+          "204": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/login-user": {
+      "post": {
+        "summary": "Log in to the user account",
+        "tags": [
+          "USER API functions"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "example": {
+                "email": "admin@astanait.edu.kz",
+                "password": "2019"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "description": "User's email address",
+            "schema": {
+              "type": "string",
+              "example": "211524@astanait.edu.kz"
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "description": "Password to log in to the user account",
+            "schema": {
+              "type": "string",
+              "example": "AITU2022!"
+            }
+          }
+        ],
+        "description": "Log in to the user account",
+        "responses": {
+          "204": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/getusers": {
+      "get": {
+        "summary": "Get information about all users in the database",
+        "tags": [
+          "USER API functions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "document": {
+                "schema": {
+                  "type": "string",
+                  "example": [
+                    {
+                      "_id": "628c342d3e62c16c6454391e",
+                      "username": "admin",
+                      "email": "211524@astanait.edu.kz",
+                      "password": "$2b$10$EwMwQnTwj2cWyDKnGHV.JOJXLiQAEYCWwSU77PpEKS61jwr6hXXqK",
+                      "__v": 0
+                    },
+                    {
+                      "_id": "628c342d3e62c16c6434391e",
+                      "username": "Ivan_hacker",
+                      "email": "hacker777@gmail.com",
+                      "password": "$2b$10GRGF3FDWDGFGDFDSFSDGFDGFDGDFSDFDSFGWwSU77PpEKS61jwr6hXXqK",
+                      "__v": 0
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/finduser": {
+      "post": {
+        "summary": "Get information about a user by their username",
+        "tags": [
+          "USER API functions"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "example": {
+                  "username": "admin"
+                }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "description": "A unique username that should not be repeated",
+            "schema": {
+              "type": "string",
+              "example": "admin"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/getlistmode1": {
+      "post": {
+        "summary": "Get all information about mode 1",
+        "tags": [
+          "Mode1 API functions"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "required": true
+          },
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "Mode1": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "required": true
+          },
+          "link": {
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    }
+  }
+}

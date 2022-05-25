@@ -1,27 +1,56 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const ejs = require("ejs");
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const request = require('request');
 const https = require('https')
 const axios = require('axios');
 const app = express()
+app.use(express.static('static'));
+const session = require('express-session')
 const db = require('./db'); // database
+const swaggerUi = require('swagger-ui-express') ;
+const swaggerDocument = require('./swagger/openapi.json')
+
 app.set('view-engine', 'ejs');
 
-const mode1Schema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true,
-    },
-    link: {
-        type: String,
-        required: true,
-    },
-});
-const mode1 = mongoose.model('mode1', mode1Schema);
+app.use(session({
+    secret: '4R34KR32K2D32JFNJNJkdfs',
+    resave: false,
+    saveUninitialized: false
+    })
+)
 
-app.use(bodyParser.urlencoded({extended:true}))
-app.use(express.static('static'));
+
+app.use(bodyParser.urlencoded({extended:true}));
+
+
+app.use(express.json())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
+const UserRoute = require('./routes/UserRoute')
+const Mode1Model = require('./models/Mode1Model')
+app.use('/',UserRoute)
+
+app.get('/login', (req, res) => {
+    let mess = ''
+    if (req.session.username) {
+        return res.redirect('/topics')
+    }
+    res.render('login.ejs', {message: mess})
+})
+
+app.get('/login-error', (req, res, message_error) => {
+    res.render('login.ejs', {message: message_error})
+})
+
+app.get('/register', (req, res) => {
+    if (req.session.username) {
+        return res.redirect('/topics')
+    }
+    res.render('register.ejs')
+})
 
 const randomUrlGen = require("random-youtube-music-video"); // generate link for random YT music video
 
@@ -61,17 +90,16 @@ app.get('/', async function (req, res) {
 
         })
     } catch {
-        res.render('main.ejs', {video_Id: 0, views: 0, likes: 0, comments: 0})
+        res.render('main.ejs', {video_Id: 0, views: 0, likes: 0, comments: 0, username: req.body.username})
     }
 })
 
-
-app.get('/login', (req, res) => {
-    res.render('login.ejs')
-})
-
-
 app.get('/rating', async function (req, res) {
+    if (!req.session.username) {
+        let mess = 'To use the site, log in'
+        res.set('Content-type', 'text/html')
+        return res.render('login.ejs', {message: mess})
+    }
     await request.get({
         url: 'https://api.api-ninjas.com/v1/facts', // API for generate random fact
         headers: {
@@ -85,18 +113,27 @@ app.get('/rating', async function (req, res) {
         }
         // else console.log(body) // for testing
         let bdy = JSON.parse(body)
-        res.render('rating.ejs', {random_fact: bdy[0].fact})
+        res.render('rating.ejs', {random_fact: bdy[0].fact, username: req.body.username})
     })
 })
 
 
 app.get('/topics', (req, res) => {
-    res.render('topics.ejs')
+    console.log(req.session.username)
+    if (req.session.username) {
+        return res.render('topics.ejs', {username: req.body.username})
+    }
+    let mess = 'To use the site, log in'
+    return res.render('login.ejs', {message: mess, username: req.body.username})
 })
 
 
 app.get('/mode1', async function (req, res) { // mode1
-    var links = await mode1.find()
+    if (!req.session.username) {
+        let mess = 'To use the site, log in'
+        return res.render('login.ejs', {message: mess})
+    }
+    var links = await Mode1Model.find()
         .catch(err => res.send(err));
     var random = Math.floor(Math.random() * 5) + 1; // random integer from 1 to 5
     var title1 = links[random].title
@@ -109,11 +146,15 @@ app.get('/mode1', async function (req, res) { // mode1
     if (title2 == undefined) {
         title2 = "Option 2"
     }
-    res.render('mode1.ejs', {music_url1: link1, music_url2: link2, music_title1: title1, music_title2: title2});
+    res.render('mode1.ejs', {music_url1: link1, music_url2: link2, music_title1: title1, music_title2: title2, username: req.body.username});
 })
 
 
 app.get('/mode-random', async function (req, res) {
+    if (!req.session.username) {
+        let mess = 'To use the site, log in'
+        return res.render('login.ejs', {message: mess})
+    }
     var youtubeUrl = await randomUrlGen.getRandomMusicVideoUrl();
     var youtubeUrl2 = await randomUrlGen.getRandomMusicVideoUrl();
     var videoId1 = youtubeUrl.split("v=").pop();
@@ -137,10 +178,12 @@ app.get('/mode-random', async function (req, res) {
         music_url1: videoId1,
         music_url2: videoId2,
         music_title1: name1,
-        music_title2: name2
+        music_title2: name2,
+        username: req.body.username
     });
 })
 
+
 app.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+    console.log("Express server listening on port http://localhost:%d in %s mode", this.address().port, app.settings.env);
 });

@@ -3,56 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Mode 1</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="./css/mode1.css" rel="stylesheet" type="text/css">
 </head>
-<body style="background: dodgerblue">
-
-<section class='menu shadow' style="background: #2b2b2b">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
-        <p class="white_nav" style="font-size: 25px; font-weight:bold;padding-left: 15px">VHits</p>
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link white_nav" href="/" style="font-weight:bold">Main Page</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link white_nav" href="/topics">Topics</a>
-            </li>
-            <li class="nav-item" style="text-align: right">
-                <a class="nav-link white_nav" href="/rating">Rating</a>
-            </li>
-        </ul>
-        <div class="nav-item">
-            <a class="btn btn-outline-light me-2 white_nav" href="/login" style="text-align: right">Login</a>
+<body style="background: rgb(53,58,64);">
+<nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark navbar-shrink py-3" id="mainNav">
+    <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span
+                    class="bs-icon-sm bs-icon-rounded bs-icon-primary border rounded-circle border-0 d-flex justify-content-center align-items-center me-2 bs-icon"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                        class="bi bi-music-note-beamed">
+            <path
+                    d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z">
+            </path>
+            <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"></path>
+            <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"></path>
+          </svg></span><span>VHits</span></a><button data-bs-toggle="collapse" class="navbar-toggler"
+                                                     data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Main page<br></a></li>
+                <li class="nav-item"><a class="nav-link" href="/topics">Topics</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rating">Rating</a></li>
+                <li class="nav-item"></li>
+                <li class="nav-item"></li>
+            </ul><a class="btn btn-primary ms-md-2" role="button" href="/logout">Logout</a>
         </div>
-    </header>
-</section>
-
-<div class="split left">
-    <p style="padding-top: 30px;font-size: 25px; color: white; text-align: center; font-weight: bold"><%=music_title1%></p>
-    <div id="player1" class="centered YoUvideo">
-        <iframe id="play1" width="970" height="700" src="https://www.youtube.com/embed/<%= music_url1%>" title="YouTube video player"
-                frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen></iframe>
     </div>
-    <a href="mode1"><button class="btn btn-warning btn-lg" style="padding-top: 10px; text-align: center; height: 80px; width: 100%">Choose</button></a>
-</div>
-
-<div class="split right">
-    <p style="padding-top: 30px;font-size: 25px; color: white; text-align: center; font-weight: bold"><%=music_title2%></p>
-    <div id="player2" class="centered YoUvideo">
-        <iframe id="play2" width="970" height="700" src="https://www.youtube.com/embed/<%= music_url2%>" title="YouTube video player"
-                frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen></iframe>
+</nav>
+<section class="py-5 mt-5"></section>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" style="padding-right: 0px;padding-left: 0px;">
+            <p class="text-center text-light"><%=music_title1%></p>
+            <div id="player1" class="centered YoUvideo">
+                <iframe id="play1" width="970" height="700" src="https://www.youtube.com/embed/<%= music_url1%>" title="YouTube video player"
+                        frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen></iframe>
+            </div>
+            <a href="mode1" class="btn btn-warning btn-lg rounded-0" type="button" style="min-width: 100%;">Choose</a>
+        </div>
+        <div class="col-md-6" style="padding-right: 0px;padding-left: 0px;" >
+            <p class="text-center text-light"><%=music_title2%></p>
+            <div id="player2" class="centered YoUvideo">
+                <iframe id="play2" width="970" height="700" src="https://www.youtube.com/embed/<%= music_url2%>" title="YouTube video player"
+                        frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen></iframe>
+            </div>
+            <a href="mode1" class="btn btn-warning btn-lg rounded-0" type="button" style="min-width: 100%;">Choose</a>
+        </div>
     </div>
-    <a href="mode1"><button class="btn btn-dark btn-lg" style="padding-top: 10px; text-align: center; height: 80px; width: 100%">Choose</button></a>
-
 </div>
-
-
 </body>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="http://immense-escarpment-18318.herokuapp.com/js/mode1.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </html>

@@ -3,49 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-
-    <style>
-        body {
-            background-image:url('../img/pic1.png');
-            font-family: Arial;
-            color: #2b2b2b;
-        }
-        .white_nav {
-            color: ghostwhite;
-        }
-    </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
+    <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./css/mode1.css" rel="stylesheet" type="text/css">
 </head>
-<body style="background-color: #1d85fc;">
-
-
-<nav class="navbar navbar-dark navbar-expand fixed-top bg-dark py-3">
-    <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span
-                    class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
-                        class="bi bi-music-note-beamed">
+<body style="background: rgb(53,58,64);">
+<section class="py-5 mt-5">
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark navbar-shrink py-3" id="mainNav">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span
+                        class="bs-icon-sm bs-icon-rounded bs-icon-primary border rounded-circle border-0 d-flex justify-content-center align-items-center me-2 bs-icon"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                            class="bi bi-music-note-beamed">
             <path
                     d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z">
             </path>
             <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"></path>
             <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"></path>
-          </svg></span><span>VHits</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span
-                    class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navcol-5">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/">Main page</a></li>
-                <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/topics">Topics</a></li>
-                <li class="nav-item"><a onclick="lloading()" class="nav-link" href="/rating">Rating</a></li>
-            </ul><a onclick="lloading()" class="btn btn-primary ms-md-2" role="button" href="/login">Login</a>
+          </svg></span><span>VHits</span></a><button data-bs-toggle="collapse" class="navbar-toggler"
+                                                     data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span
+                        class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Main page<br></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/topics">Topics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/rating">Rating</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul><a class="btn btn-primary fw-light shadow" role="button" href="/login"><strong>Login</strong><br></a>
+            </div>
         </div>
+    </nav>
+</section>
+<div class="card bg-dark">
+    <div class="card-body text-center d-flex flex-column align-items-center">
+        <p class="fs-3 fw-bold text-light">Log in to your account</p>
+        <div class="bs-icon-xl bs-icon-circle bs-icon-primary shadow bs-icon my-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
+                <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z">
+                </path>
+            </svg></div>
+        <form action="/login-user" method="post">
+            <% if (message) { %>
+                <div class="alert alert-warning" role="alert"><span><strong><%=message%></strong></span></div>
+            <% } %>
+            <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email" required=""></div>
+            <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" maxlength="15" required=""></div>
+            <div class="mb-3"><button class="btn btn-primary shadow d-block w-100" type="submit">Log in</button></div>
+            <p class="text-light">Forgot your password?</p>
+            <p class="text-light">No account?<a href="/register" style="color: #ffad00"><span style="text-decoration: underline;">Create</span></a></p>
+        </form>
     </div>
-</nav>
-
-<div class="white_nav" style="padding-top: 100px;text-align: center">IN PROCESS</div>
+</div>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script src="../js/main.js"></script>
 </html>
